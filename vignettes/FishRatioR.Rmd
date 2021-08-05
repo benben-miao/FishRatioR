@@ -1,0 +1,118 @@
+---
+title: "FishRatioR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{FishRatioR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(FishRatioR)
+```
+
+## 1.Example data view and usage
+
+```{r}
+data("famgenspe")
+
+famgenspe
+```
+
+## 2. Calculate Ratio values
+
+> **Formula**: Ratio = (N_species_in_genus) / (N_species_in_family)
+
+```{r}
+ratio <- calc_ratio(famgenspe = famgenspe)
+
+ratio
+```
+
+## 3. Calculate Ln(Ratio) values
+
+> **Formula**: Ln(Ratio) = Ln((N_species_in_genus) / (N_species_in_family))
+
+```{r}
+ln_ratio <- calc_ln_ratio(famgenspe = famgenspe)
+
+ln_ratio
+```
+
+## 4. Calculate Ratio(-Ln(Ratio)) values
+
+> **Formula**: NegMulRatio = Ratio \* (-Ln((N_species_in_genus) / (N_species_in_family)))
+
+```{r}
+mul_ratio <- calc_mul_ratio(famgenspe = famgenspe)
+
+mul_ratio
+```
+
+## 5. Calculate all values based one step
+
+> **Formula**: Ratio = (N_species_in_genus) / (N_species_in_family), Ln(Ratio) = Ln((N_species_in_genus) / (N_species_in_family)), NegMulRatio = Ratio \* (-Ln((N_species_in_genus) / (N_species_in_family)))
+
+```{r}
+all_ratio <- calc_all(famgenspe = famgenspe)
+
+all_ratio
+```
+
+## 6. FishRatioR for Python
+
+> [**FishRatio PYPI Code**](https://github.com/benben-miao/FishRatio)**: <https://github.com/benben-miao/FishRatio>**
+>
+> [**FishRatio PYPI**](https://pypi.org/project/fishratio)**: <https://pypi.org/project/fishratio>**
+
+```{=html}
+pip install fishratio
+  
+  fishratio --help
+  Usage: fishratio [OPTIONS]
+  
+       Description:
+  
+       Calculate the ratio and logarithmic value of species contained in
+       several genus of a family to all species in this family.
+  
+       Examples:
+  
+       1. Get options and parameters help:
+  
+       FishRatio --help
+  
+       2. Sample command with all default parameters:
+  
+       FishRatio --input input.xlsx     or
+  
+       FishRatio --input input.xlsx --ratio true --ln_ratio true --neg_ratio
+       true --output output.xlsx
+  
+       3. Only calculate (species number of genus) / (species number of
+       family):
+  
+       FishRatio --input input.xlsx --ratio true --ln_ratio false --neg_ratio
+       false --output output.xlsx
+  
+  Options:
+    --input TEXT        Full name (path + name + extension) of input file.
+                        default="input.xlsx"
+  
+    --ratio BOOLEAN     Formula: (species number of genus) / (species number of
+                        family) ratio value. default=True
+  
+    --ln_ratio BOOLEAN  Formula: Log(e)(ratio value). default=True
+    --neg_mul BOOLEAN   Formula: -(ratio x Log(e)(ratio value)). default=True
+    --output TEXT       Full name (path + name + extension) of output file.
+                        default="output.xlsx"
+  
+    --help              Show this message and exit.
+```
