@@ -2,6 +2,12 @@
 > Calculate the ratio and logarithmic value of species contained in several genus of a family to all species in this family
 
 ```{r setup}
+install.packages("FishRatioR")
+
+or 
+
+devtools::install_github("benben-miao/FishRatioR")
+
 library(FishRatioR)
 ```
 
