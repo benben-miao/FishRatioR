@@ -1,6 +1,6 @@
 Package: FishRatioR
-Type: Package-
-Title: Calculate the ratio and logarithmic value of species contained in several genus of a family to all species in the family.
+Type: Package
+Title: Calculate the ratio and logarithmic value of species contained in several genus of a family to all species in the family
 Version: 1.1.0
 Author: benben-miao
 Maintainer: benben-miao <benben.miao@outlook.com>
