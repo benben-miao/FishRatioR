@@ -1,7 +1,12 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 ## FishRatioR:
 > Calculate the ratio and logarithmic value of species contained in several genus of a family to all species in this family
 
-```{r setup}
+```R
 install.packages("FishRatioR")
 
 or 
@@ -13,7 +18,7 @@ library(FishRatioR)
 
 ## 1.Example data view and usage
 
-```{r}
+```R
 data("famgenspe")
 
 famgenspe
@@ -34,7 +39,7 @@ famgenspe
 
 > **Formula**: Ratio = (N_species_in_genus) / (N_species_in_family)
 
-```{r}
+```R
 ratio <- calc_ratio(famgenspe = famgenspe)
 
 ratio
@@ -55,7 +60,7 @@ ratio
 
 > **Formula**: Ln(Ratio) = Ln((N_species_in_genus) / (N_species_in_family))
 
-```{r}
+```R
 ln_ratio <- calc_ln_ratio(famgenspe = famgenspe)
 
 ln_ratio
@@ -76,7 +81,7 @@ ln_ratio
 
 > **Formula**: NegMulRatio = Ratio \* (-Ln((N_species_in_genus) / (N_species_in_family)))
 
-```{r}
+```R
 mul_ratio <- calc_mul_ratio(famgenspe = famgenspe)
 
 mul_ratio
@@ -97,7 +102,7 @@ mul_ratio
 
 > **Formula**: Ratio = (N_species_in_genus) / (N_species_in_family), Ln(Ratio) = Ln((N_species_in_genus) / (N_species_in_family)), NegMulRatio = Ratio \* (-Ln((N_species_in_genus) / (N_species_in_family)))
 
-```{r}
+```R
 all_ratio <- calc_all(famgenspe = famgenspe)
 
 all_ratio
@@ -120,7 +125,7 @@ all_ratio
 >
 > [**FishRatio PYPI**](https://pypi.org/project/fishratio)**: <https://pypi.org/project/fishratio>**
 
-```{bash}
+```bash
 pip install fishratio
   
 fishratio --help
